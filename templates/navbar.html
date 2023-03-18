@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+	<title>Dennis Ivy</title>
+
+
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1"/>
+
+
+</head>
+<body>
+{% block content %}
+
+<div class="nav-wrapper">
+
+					<!-- Link around dots-wrapper added after tutorial video -->
+					<a href="index.html">
+						<div class="dots-wrapper">
+							<div id="dot-1" class="browser-dot"></div>
+							<div id="dot-2" class="browser-dot"></div>
+							<div id="dot-3" class="browser-dot"></div>
+						</div>
+					</a>
+
+
+					<ul id="navigation">
+						<li><a href="">Home</a></li>
+						<li><a href="">About</a></li>
+						<li><a href="{% url "projects" %}">Projects</a></li>
+						<li><a href="">Contact</a></li>
+
+					</ul>
+				</div>
+
+
+
+
+{% endblock %}
+</body>
+</html>

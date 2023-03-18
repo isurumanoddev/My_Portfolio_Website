@@ -57,7 +57,16 @@ h4 { font-size: 24px;}
 h5 { font-size: 20px;}
 h6 { font-size: 16px;}
 
+.navigation-bar {
+    background-color: #213f3c;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+}
 
+.nav-link {
+    color: #fff;
+}
 .s1{
 	background-color: var(--secondaryColor);
 	border-bottom:1px solid var(--borderColor);
@@ -312,7 +321,8 @@ h6 { font-size: 16px;}
 
 .post-wrapper{
 	display: grid;
-	grid-template-columns: repeat(auto-fit, 320px);
+	grid-template-columns: repeat(auto-fit, 350px);
+	grid-template-rows:repeat(auto-fit, 350px);
 	gap:20px;
 	justify-content: center;
 	padding-bottom: 50px;
