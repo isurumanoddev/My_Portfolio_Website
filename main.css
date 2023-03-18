@@ -1,0 +1,41 @@
+.navigation-bar {
+    background-color:#1F2428 ;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+}
+.nav-link {
+    color: #fff;
+}
+.hero {
+    background-color: #191e14;
+    height: 80vh;
+    color: #fff;
+}
+#profile_pic {
+    height: 250px;
+    width: 250px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+.hero--content {
+    width: 800px;
+    margin: 0 auto;
+    padding: 3em;
+
+    background-color: #0a0a2f;
+}
+.hero--content--intro {
+    display: flex;
+    color: #ffffff;
+    gap: 2em;
+}
+.title {
+    font-size: 60px;
+}
+.slogan {
+    font-size: 30px;
+}
+.intro--name {
+    font-size:80px ;
+}
