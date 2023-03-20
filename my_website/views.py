@@ -19,3 +19,6 @@ def contact(request):
     context = {}
     return render(request, "contact.html", context)
 
+def project(request,pk):
+    context = {}
+    return render(request, "post.html", context)
