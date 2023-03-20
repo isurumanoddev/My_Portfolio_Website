@@ -6,20 +6,14 @@
 	<section class="s2">
 		<div class="main-container">
 
-			<h3 style="text-align: center;">Create New Project</h3>
+			<h3 style="text-align: center;">delete Project</h3>
 
 
-			<form method="POST" id="project-form" enctype="multipart/form-data">
+			<form method="POST" id="form" >
 				{% csrf_token %}
-				{{ form.media }}
-				{% for field in form %}
-					<label id="label">{{ field.label }}</label>
 
-					{{ field }}
 
-				{% endfor %}
-
-				<input id="submit-btn" type="submit" value="Create New Project">
+				<input id="submit-btn" type="submit" value="Confirm">
 			</form>
 
 

@@ -84,15 +84,15 @@ h6 {
 }
 
 
-.btn {
-    display: inline-block;
-    background: white;
-    margin-top: 1rem;
-    color: blue;
-    font-size: 1.7rem;
-    padding: 1rem 3rem;
-    cursor: pointer;
-}
+/*.btn {*/
+/*    display: inline-block;*/
+/*    background: white;*/
+/*    margin-top: 1rem;*/
+/*    color: blue;*/
+/*    font-size: 1.7rem;*/
+/*    padding: 1rem 3rem;*/
+/*    cursor: pointer;*/
+/*}*/
 
 .navigation-bar {
     background-color: #213f3c;
@@ -452,6 +452,7 @@ h6 {
 }
 
 .post-intro {
+    display: flex;
     color: #4b5156;
     font-size: 14px;
 }
@@ -479,10 +480,36 @@ h6 {
     margin-bottom: 50px;
 
 }
+#message-box {
+
+    display: block;
+    max-width: 1200px;
+    margin: 0 auto;
+    border: 1px solid var(--borderColor);
+    padding: 15px;
+    border-radius: 5px;
+    background-color: var(--mainColor);
+    margin-bottom: 50px;
+
+}
+
 #label {
     font-size: 20px;
     padding-top: 15px;
-    display: block;
+
+
+}
+.btn-links {
+    font-size: 20px;
+    padding: 5px;
+    border-radius: 8px;
+    background-color: green;
+    color: white;
+
+}
+.btn-links :hover {
+
+
 }
 
 #submit-btn {
@@ -552,7 +579,10 @@ h6 {
     background: #000000;
     color: white;
     padding-right: 10px;
-    font-size:45px
+    font-size: 45px;
+    margin-left: 30px;
+    justify-content: end;
+
 }
 
 

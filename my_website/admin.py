@@ -4,3 +4,4 @@ from my_website.models import *
 admin.site.register(Projects)
 admin.site.register(Tag)
 admin.site.register(Skills)
+admin.site.register(Messages)

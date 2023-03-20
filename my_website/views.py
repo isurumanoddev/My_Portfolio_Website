@@ -60,3 +60,24 @@ def edit_project(request, pk):
 
     context = {"form": form}
     return render(request, "project_form.html", context)
+
+
+def messages(request):
+    messages = Messages.objects.all()
+    context = {"messages": messages}
+    return render(request, "inbox.html", context)
+
+
+def view_message(request, pk):
+    message = Messages.objects.get(id=pk)
+    context = {"message": message}
+    return render(request, "message.html", context)
+
+def delete_project(request, pk):
+    project = Projects.objects.get(id=pk)
+    if request.method == "POST":
+        project.delete()
+        return redirect("projects")
+
+    context = {"object": object}
+    return render(request, "delete.html", context)

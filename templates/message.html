@@ -4,11 +4,19 @@
 {% block content %}
 
 	<section class="s2">
-		<div class="main-container">
+		<div class="main-container mt-3">
 
-			<h3 style="text-align: center;">My Messages</h3>
 
 			<div id="message-box">
+
+				<h4>{{ message.subject }}</h4>
+				<hr/>
+				<p>Name  :{{ message.name }}</p>
+				<p>Email :{{ message.email }}</p>
+				<hr/>
+				<p>{{ message.body }}</p>
+
+				<h5></h5>
 
 			</div>
 
