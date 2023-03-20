@@ -303,13 +303,47 @@ h6 { font-size: 16px;}
 	gap:100px;
 }
 
-
+.education {
+    margin-top: 20px;
+  }
+  .education h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  .education ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .education li {
+    margin-bottom: 20px;
+  }
+  .education h3 {
+    font-size: 18px;
+    margin-bottom: 5px;
+  }
+  .education p {
+    margin: 0;
+    font-size: 16px;
+  }
 #skills{
-	display: flex;
-	justify-content: space-evenly;
+
+
 	background-color: var(--previewShadow);
 }
-
+.skills-img-container{
+	display: flex;
+	margin-top: 10px;
+}
+.skills-img {
+	width: 50px;
+	height: 50px;
+	padding: 0 20px;
+}
+.skill-name {
+	font-size:25px ;
+	padding: 0 20px;
+}
 .skills-section{
 	display: grid;
 	align-content: center;
