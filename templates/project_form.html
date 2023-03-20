@@ -1,0 +1,31 @@
+{% extends "main.html" %}
+{% load static %}
+
+{% block content %}
+
+	<section class="s2">
+		<div class="main-container">
+
+			<h3 style="text-align: center;">Create New Project</h3>
+
+
+			<form method="POST" id="form" enctype="multipart/form-data">
+				{% csrf_token %}
+				{{ form.as_p }}
+				{% for field in form %}
+					<label>{{ field.label }}</label>
+					<div >
+						{{ field }}
+					</div>
+				{% endfor%}
+
+				<input id="submit-btn" type="submit" value="Create New Project">
+			</form>
+
+
+		</div>
+	</section>
+
+
+
+{% endblock %}
