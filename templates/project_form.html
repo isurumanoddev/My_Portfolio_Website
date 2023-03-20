@@ -9,11 +9,11 @@
 			<h3 style="text-align: center;">Create New Project</h3>
 
 
-			<form method="POST" id="form" enctype="multipart/form-data">
+			<form method="POST" id="project-form" enctype="multipart/form-data">
 				{% csrf_token %}
-
+				{{ form.media }}
 				{% for field in form %}
-					<label>{{ field.label }}</label>
+					<label id="label">{{ field.label }}</label>
 
 					{{ field }}
 

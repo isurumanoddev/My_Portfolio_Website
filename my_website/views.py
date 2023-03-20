@@ -33,7 +33,7 @@ def project_page(request, pk):
     project = Projects.objects.get(id=pk)
 
     context = {"project": project}
-    return render(request, "post.html", context)
+    return render(request, "project_page.html", context)
 
 
 def create_project(request):
@@ -49,12 +49,11 @@ def create_project(request):
 
 
 def edit_project(request, pk):
-    p = Projects.objects.get(id=pk)
+    project = Projects.objects.get(id=pk)
 
-
-    form = ProjectForm(instance=p)
+    form = ProjectForm(instance=project)
     if request.method == "POST":
-        form = ProjectForm(request.POST, request.FILES, instance=p)
+        form = ProjectForm(request.POST, request.FILES, instance=project)
         if form.is_valid():
             form.save()
             return redirect("projects")

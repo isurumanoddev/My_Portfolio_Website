@@ -21,9 +21,10 @@
 							<img class="thumbnail" src="{{ project.imageURL }}">
 							<div class="post-preview">
 								<h6 class="post-title">{{ project.title }}</h6>
-								<p class="post-intro">{{ project.body }}</p>
+{#								<p class="post-intro">{{ project.body }}</p>#}
 								<a href="{% url "project-page" project.id %}">Read More</a>
 								{#								<a href="" class="btn">discover more</a>#}
+								<a><i class="fa fa-github" style="font-size:20px"> Github</i></a>
 							</div>
 						</div>
 					</div>
