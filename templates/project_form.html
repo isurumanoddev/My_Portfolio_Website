@@ -11,13 +11,13 @@
 
 			<form method="POST" id="form" enctype="multipart/form-data">
 				{% csrf_token %}
-				{{ form.as_p }}
+
 				{% for field in form %}
 					<label>{{ field.label }}</label>
-					<div >
-						{{ field }}
-					</div>
-				{% endfor%}
+
+					{{ field }}
+
+				{% endfor %}
 
 				<input id="submit-btn" type="submit" value="Create New Project">
 			</form>
