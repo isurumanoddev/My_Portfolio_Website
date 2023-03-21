@@ -1,14 +1,22 @@
 from django.shortcuts import render, redirect
 from my_website.models import *
 from my_website.forms import *
+from django.contrib import messages
 
 
 # Create your views here.
 def home(request):
     projects = Projects.objects.all()
     skills = Skills.objects.all()
+    form = ContactForm()
+    if request.method == "POST":
+        form = ContactForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            # messages.info(request, "Message sent Successfully")
+            return redirect("home")
 
-    context = {"projects": projects, "skills": skills}
+    context = {"projects": projects, "skills": skills, "form": form}
     return render(request, "index.html", context)
 
 
@@ -25,7 +33,8 @@ def about(request):
 
 
 def contact(request):
-    context = {}
+    form = ContactForm()
+    context = {"form": form}
     return render(request, "contact.html", context)
 
 
@@ -72,6 +81,7 @@ def view_message(request, pk):
     message = Messages.objects.get(id=pk)
     context = {"message": message}
     return render(request, "message.html", context)
+
 
 def delete_project(request, pk):
     project = Projects.objects.get(id=pk)

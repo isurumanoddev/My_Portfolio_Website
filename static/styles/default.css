@@ -180,6 +180,7 @@ h6 {
     padding: 0 25px;
 }
 
+
 #navigation img {
     display: inline-block;
     margin-right: 5px;
@@ -190,6 +191,7 @@ h6 {
 #social-logo {
     width: 25px;
     height: 25px;
+    cursor: pointer;
 }
 
 .dots-wrapper {
@@ -395,9 +397,9 @@ h6 {
 }
 
 .skills-img {
-    width: 50px;
+    width: 100px;
     height: 50px;
-    padding: 0 20px;
+    padding: 5px 20px;
 }
 
 .skill-name {
