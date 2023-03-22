@@ -11,10 +11,9 @@ urlpatterns = [
     path('messages/', views.inbox_messages, name="messages"),
     path('message/<str:pk>', views.view_message, name="view-message"),
 
-    path('project/<str:pk>/', views.project_page, name="project-page"),
-    # path('project/<str:pk>/', views.project_page, name="project-page"),
-    # path('project/<str:pk>/', views.project_page, name="project-page"),
+    path('donation/', views.donation, name="donation"),
 
+    path('project/<str:pk>/', views.project_page, name="project-page"),
 
     path('create_project/', views.create_project, name="create-project"),
     path('edit_project/<str:pk>/', views.edit_project, name="edit-project"),

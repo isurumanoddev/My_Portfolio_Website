@@ -3,73 +3,13 @@
 
 {% block content %}
 
-	<section class="education">
-		<div class="main-container">
-			<h2>Education</h2>
-			<ul>
-				<li>
-					<h3>University of Washington</h3>
-					<p>Bachelor of Science in Computer Science</p>
-					<p>Graduated June 2019</p>
-				</li>
-				<li>
-					<h3>Seattle Central College</h3>
-					<p>Associate of Science in Computer Science</p>
-					<p>Graduated June 2017</p>
-				</li>
-			</ul>
-		</div>
-	</section>
-
-
-
 	<section class="s2">
 		<div class="main-container">
 
 			<div class="about-wrapper">
 				<div class="about-me">
-					<h4>More about me</h4>
-
-					<p>I build new projects just to tickle my brain and love teaching others how they're made.</p>
-
-					<p>While I keep busy teaching courses, I still take interviews in search of a great team & projects
-						that
-						interest me.</p>
-
-
-					<hr>
-
-
-					<h4>TOP EXPERTISE</h4>
-
-					<p>Fullstack developer with primary focus on Django + React: <a target="_blank" href="resume.pdf">Download
-						Resume</a></p>
-
-					<div id="skills">
-						<ul>
-							<div class="skills-img-container">
-								<img class="skills-img" src="{% static "images/logo.png" %}"/>
-								<li class="skill-name">Python</li>
-							</div>
-
-							<div class="skills-img-container">
-								<img class="skills-img" src="{% static "images/django-logo.png" %}"/>
-								<li class="skill-name">Django</li>
-							</div>
-
-							<li>Django</li>
-							<li>JavaScript</li>
-							<li>React</li>
-							<li>Postgres</li>
-							<li>Google Maps API</li>
-							<li>JS Charts</li>
-							<li>AWS (RDS/S3)</li>
-							<li>Heroku</li>
-							<li>HTML/CSS</li>
-						</ul>
-
-					</div>
-
+					<h4>Donations</h4>
+					<div id="paypal-button-container"></div>
 				</div>
 
 
@@ -77,6 +17,55 @@
 
 		</div>
 	</section>
+	<script src="https://www.paypal.com/sdk/js?client-id=test&currency=USD"></script>
+	<script>
+        paypal.Buttons({
+            // Order is created on the server and the order id is returned
+            createOrder() {
+                return fetch("/my-server/create-paypal-order", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    // use the "body" param to optionally pass additional order information
+                    // like product skus and quantities
+                    body: JSON.stringify({
+                        cart: [
+                            {
+                                sku: "YOUR_PRODUCT_STOCK_KEEPING_UNIT",
+                                quantity: "YOUR_PRODUCT_QUANTITY",
+                            },
+                        ],
+                    }),
+                })
+                    .then((response) => response.json())
+                    .then((order) => order.id);
+            },
+            // Finalize the transaction on the server after payer approval
+            onApprove(data) {
+                return fetch("/my-server/capture-paypal-order", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({
+                        orderID: data.orderID
+                    })
+                })
+                    .then((response) => response.json())
+                    .then((orderData) => {
+                        // Successful capture! For dev/demo purposes:
+                        console.log('Capture result', orderData, JSON.stringify(orderData, null, 2));
+                        const transaction = orderData.purchase_units[0].payments.captures[0];
+                        alert(`Transaction ${transaction.status}: ${transaction.id}\n\nSee console for all available details`);
+                        // When ready to go live, remove the alert and show a success message within this page. For example:
+                        // const element = document.getElementById('paypal-button-container');
+                        // element.innerHTML = '<h3>Thank you for your payment!</h3>';
+                        // Or go to another URL:  window.location.href = 'thank_you.html';
+                    });
+            }
+        }).render('#paypal-button-container');
+	</script>
 
 
 

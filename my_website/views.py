@@ -51,8 +51,6 @@ def project_page(request, pk):
     comments = project.comments_set.all().order_by("-created")
     comment_count = project.comments_set.count()
 
-
-
     context = {"project": project, "comments": comments, "comment_count": comment_count}
     return render(request, "project_page.html", context)
 
@@ -117,3 +115,6 @@ def create_skill(request):
     return render(request, "skill_form.html", context)
 
 
+def donation(request):
+    context = {}
+    return render(request, "donation.html", context)

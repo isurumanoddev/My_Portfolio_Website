@@ -29,8 +29,11 @@
 			<li><a href="{% url "about" %}">About</a></li>
 			<li><a href="{% url "projects" %}">Projects</a></li>
 			<li><a href="{% url "contacts" %}">Contact</a></li>
+			{% if request.user.is_authenticated %}
 			<li><a href="{% url "messages" %}">Inbox</a></li>
 			<li><a href="{% url "create-skill" %}">Add Skill</a></li>
+			{% endif %}
+			<li><a class="btn btn-warning " href="{% url "donation" %}">Donate</a></li>
 			<img id="social-logo" src="{% static "images/4202098_github_code_developer_logo_icon.png" %}" href="">
 			<img id="social-logo" src="{% static "images/317750_linkedin_icon.png" %}" href="">
 			<img id="social-logo" src="{% static "images/5296514_bird_tweet_twitter_twitter logo_icon.png" %}" href="">
