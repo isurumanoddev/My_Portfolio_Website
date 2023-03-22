@@ -384,15 +384,18 @@ h6 {
     margin: 0;
     font-size: 16px;
 }
+
 .edu-container {
 
     display: flex;
     align-items: center;
     gap: 20px;
 }
+
 .education-logo {
     width: 150px;
 }
+
 #skills {
 
 
@@ -479,6 +482,7 @@ h6 {
     margin-bottom: 50px;
 
 }
+
 #project-form {
     display: block;
     max-width: 865px;
@@ -490,6 +494,7 @@ h6 {
     margin-bottom: 50px;
 
 }
+
 #message-box {
 
     display: block;
@@ -509,6 +514,7 @@ h6 {
 
 
 }
+
 .btn-links {
     font-size: 20px;
     padding: 5px;
@@ -517,6 +523,7 @@ h6 {
     color: white;
 
 }
+
 .btn-links :hover {
 
 
@@ -554,6 +561,21 @@ h6 {
 
 }
 
+@media screen and (max-width: 600px) {
+    .edu-container {
+
+        width: 100%;
+        flex-flow: column;
+        align-items: start;
+
+    }
+
+    .education-logo {
+        display: none;
+    }
+
+}
+
 @media screen and (max-width: 400px) {
     #preview-shadow {
         max-width: 280px;
@@ -566,6 +588,28 @@ h6 {
         width: 280px;
 
     }
+
+    .skills-img-container {
+
+        flex-flow: column;
+    }
+
+    .skills-img {
+        display: none;
+    }
+
+    .edu-container {
+
+
+        flex-flow: column;
+        align-items: center;
+
+    }
+
+    .education-logo {
+        display: none;
+    }
+
 
 }
 
