@@ -1,4 +1,4 @@
-from my_website.models import Projects,Messages
+from my_website.models import Projects,Messages,Skills
 from django.forms import ModelForm
 
 
@@ -28,3 +28,15 @@ class ContactForm(ModelForm):
         self.fields["email"].widget.attrs.update({'class':'form-control'})
         self.fields["subject"].widget.attrs.update({'class':'form-control'})
         self.fields["body"].widget.attrs.update({'class':'form-control'})
+
+class SkillForm(ModelForm):
+    class Meta:
+        model = Skills
+        fields = "__all__"
+
+    def __init__(self, *args, **kwargs):
+        super(SkillForm,self).__init__(*args,**kwargs)
+
+        self.fields["title"].widget.attrs.update({'class':'form-control'})
+        self.fields["body"].widget.attrs.update({'class':'form-control'})
+

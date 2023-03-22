@@ -59,7 +59,31 @@
 			<li>- XML2PDF - PDF generator</li>
 		</ul>
 
+		<div class="comment-container">
+			<h4>Comments ({{ comment_count }})</h4>
+			<hr/>
+			<div class="card">
+				{% for commnent in comments %}
+					<div class="card-body">
+						<h6 class="card-title">@{{ commnent.name }} <span
+								style="margin-left: 20px"> {{ commnent.created|timesince }} ago</span></h6>
+						<p class="card-text">{{ commnent.body }}</p>
+						<hr/>
 
+					</div>
+				{% endfor %}
+				<div class="card">
+					<div class="card-body">
+						<form method="POST" action="">
+							{% csrf_token %}
+							<input type="text" name="message" placeholder="add your comment here"
+							       class="form-control bg-primary-subtle">
+						</form>
+					</div>
+				</div>
+			</div>
+
+		</div>
 	</div>
 
 {% endblock %}

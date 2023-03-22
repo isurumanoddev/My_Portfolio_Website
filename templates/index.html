@@ -4,24 +4,21 @@
 
 
 {% block content %}
-{#	{% if messages %}#}
-{#	<ul class="messages">#}
-{#		{% for message in messages %}#}
-{#			<div class="alert alert-success" role="alert">#}
-{#				{{ message }}#}
-{#			</div>#}
-{##}
-{#		{% endfor %}#}
-{#	</ul>#}
-{#{% endif %}#}
+	{#	{% if messages %}#}
+	{#	<ul class="messages">#}
+	{#		{% for message in messages %}#}
+	{#			<div class="alert alert-success" role="alert">#}
+	{#				{{ message }}#}
+	{#			</div>#}
+	{##}
+	{#		{% endfor %}#}
+	{#	</ul>#}
+	{#{% endif %}#}
 
 
 	<section class="s1">
 		<div class="main-container">
-
-
 			<div class="intro-wrapper">
-
 				<div class="greeting-wrapper">
 					<h1>Hi, I'm Isuru Manod</h1>
 				</div>
@@ -61,19 +58,15 @@
 			<div class="about-wrapper">
 				<div class="about-me">
 					<h4>More about me</h4>
-
 					<p>I build new projects just to tickle my brain and love teaching others how they're made.</p>
-
 					<p>While I keep busy teaching courses, I still take interviews in search of a great team & projects
 						that
 						interest me.</p>
-
-
 					<hr>
 
 
-					<h4>TOP EXPERTISE</h4>
 
+					<h4>TOP EXPERTISE</h4>
 					<p>Fullstack developer with primary focus on Django + React: <a target="_blank" href="resume.pdf">Download
 						Resume</a></p>
 
@@ -81,24 +74,16 @@
 						<ul>
 							{% for skill in skills %}
 								<div class="skills-img-container">
-									<img class="skills-img" src="{% static "images/logo.png" %}"/>
+									<img class="skills-img" src="{{ skill.imageURL }}"/>
 									<li class="skill-name">{{ skill.title }}</li>
 								</div>
 							{% endfor %}
-
-
 						</ul>
-
 					</div>
-
 				</div>
-
-
 			</div>
-
 		</div>
 	</section>
-<a href="#" class="fa fa-facebook"></a>
 
 	<section class="s1">
 		<div class="main-container">
@@ -111,17 +96,15 @@
 							<img class="thumbnail" src="{{ project.imageURL }}">
 							<div class="post-preview">
 								<h6 class="post-title">{{ project.title }}</h6>
-{#								<p class="post-intro">{{ project.body }}</p>#}
+								{#								<p class="post-intro">{{ project.body }}</p>#}
 								<a class="btn-more" href="{% url "project-page" project.id %}">Read More</a>
-
-
-								<a href="{{ project.github_link }}"><i class="fa fa-github" style="font-size:20px"> Github</i></a>
+								<a href="{{ project.github_link }}"><i class="fa fa-github" style="font-size:20px">
+									Github</i></a>
 
 							</div>
 						</div>
 					</div>
 				{% endfor %}
-
 			</div>
 		</div>
 	</section>
@@ -130,19 +113,13 @@
 		<div class="main-container">
 			<a href=""></a>
 			<h3 style="text-align: center;padding: 20px">Get In Touch</h3>
-
 			<form id="form" method="POST">
 				<a name="contact"></a>
 				{% csrf_token %}
 				{{ form }}
-
 				<input id="submit-btn" type="submit" value="Send">
 			</form>
 		</div>
 	</section>
-
-
-
-
 
 {% endblock %}

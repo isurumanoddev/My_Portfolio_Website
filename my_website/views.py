@@ -40,8 +40,20 @@ def contact(request):
 
 def project_page(request, pk):
     project = Projects.objects.get(id=pk)
+    if request.method == "POST":
+        Comments.objects.create(
+            project=project,
+            name="Anonymous",
+            body=request.POST.get("message")
 
-    context = {"project": project}
+        )
+        return redirect("project-page", pk=project.id)
+    comments = project.comments_set.all().order_by("-created")
+    comment_count = project.comments_set.count()
+
+
+
+    context = {"project": project, "comments": comments, "comment_count": comment_count}
     return render(request, "project_page.html", context)
 
 
@@ -71,7 +83,7 @@ def edit_project(request, pk):
     return render(request, "project_form.html", context)
 
 
-def messages(request):
+def inbox_messages(request):
     messages = Messages.objects.all()
     context = {"messages": messages}
     return render(request, "inbox.html", context)
@@ -91,3 +103,17 @@ def delete_project(request, pk):
 
     context = {"object": object}
     return render(request, "delete.html", context)
+
+
+def create_skill(request):
+    form = SkillForm()
+    if request.method == "POST":
+        form = SkillForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect("home")
+
+    context = {"form": form}
+    return render(request, "skill_form.html", context)
+
+
